@@ -28,4 +28,4 @@ def get_friendly_label_name(col):
     elif 'health' in col.lower():
         name = 'health'
 
-    return name	
+    return name    
