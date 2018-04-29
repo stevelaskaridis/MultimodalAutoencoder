@@ -567,7 +567,10 @@ def normalize_columns(df, wanted_feats, normalization='z_score'):
         else:
             minx = min(feat_list)
             maxx = max(feat_list)
-            norm_func = lambda x: (x - minx) / (maxx - minx)
+            if maxx != minx:
+                norm_func = lambda x: (x - minx) / (maxx - minx)
+            else:
+                norm_func = lambda x: x
         df[feat] = df[feat].apply(norm_func)
     return df
 
